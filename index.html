@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The mystery detective</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="logo">
+            <span>🕵️</span>
+            <h1>The mystery detective</h1>
+        </div>
+
+        <p>Every mystery has an answer</p>
+
+    </header>
+
+
+    <main class="main-container">
+
+        <section class="dashboard-section">
+
+            <div class="dashboard">
+
+                <div class="dashboard-card">
+                    <h3>Total Cases</h3>
+                    <p id="total-cases">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Solved Cases</h3>
+                    <p id="solved-cases">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Unsolved Cases</h3>
+                    <p id="unsolved-cases">0</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3>Completion Rate</h3>
+                    <p id="completion-rate">0%</p>
+
+                    <div class="completion-progress">
+                        <div id="completion-progress-fill"></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="dashboard-actions">
+                <button id="reset-progress-btn" class="reset-progress-btn">
+                    ↻ Reset Progress
+                </button>
+            </div>
+
+        </section>
+
+
+        <nav class="navigation">
+
+            <button class="nav-btn active" data-page="cases-page">
+                Available Cases
+            </button>
+
+            <button class="nav-btn" data-page="investigation-page">
+                Investigation
+            </button>
+
+        </nav>
+
+
+        <section id="cases-page" class="page active-page">
+
+            <div class="section-heading">
+                <h2>Available Cases</h2>
+                <p>Choose a mystery and start your investigation</p>
+            </div>
+
+            <div class="case-search">
+                <input
+                    type="text"
+                    id="case-search"
+                    placeholder="Search cases by title or location..."
+                >
+            </div>
+
+            <div class="case-filter">
+                <label for="difficulty-filter">Filter by difficulty:</label>
+
+                <select id="difficulty-filter">
+                    <option value="all">All Difficulties</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                </select>
+
+                <button id="clear-filters-btn" class="clear-filters-btn">
+                    Clear Filters
+                </button>
+            </div>
+
+            <div id="cases-container" class="cases-container">
+
+
+            </div>
+
+        </section>
+
+
+        <section id="investigation-page" class="page">
+
+            <div id="investigation-container">
+
+
+            </div>
+
+        </section>
+
+        <div id="case-modal" class="modal">
+            <div class="modal-content">
+                <button id="close-modal-btn" class="close-modal-btn">&times;</button>
+
+                <h2 id="modal-case-title"></h2>
+                <p id="modal-case-description"></p>
+                <p id="modal-case-location"></p>
+                <p id="modal-case-difficulty"></p>
+
+                <div id="modal-action-container">
+                    <button id="modal-investigate-btn" class="investigate-btn">
+                        Investigate This Case
+                    </button>
+
+                    <p id="modal-solved-message">
+                        ✓ This case has already been solved!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast" class="toast"></div>
+
+        <div id="reset-modal" class="modal">
+            <div class="modal-content reset-modal-content">
+                <h2>Reset Investigation Progress</h2>
+
+                <p>
+                    Are you sure you want to reset all your progress?
+                </p>
+
+                <div class="reset-modal-actions">
+                    <button id="cancel-reset-btn" class="cancel-reset-btn">
+                        Cancel
+                    </button>
+
+                    <button id="confirm-reset-btn" class="confirm-reset-btn">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="evidence-modal" class="modal">
+            <div class="modal-content evidence-modal-content">
+                <h2 id="evidence-modal-title">Discover This Evidence?</h2>
+
+                <p id="evidence-modal-description">
+                    Are you sure you want to investigate this piece of evidence?
+                </p>
+
+                <div class="evidence-modal-actions">
+                    <button id="cancel-evidence-btn">
+                        Cancel
+                    </button>
+
+                    <button id="confirm-evidence-btn">
+                        Discover Evidence
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="clear-notes-modal" class="modal">
+            <div class="modal-content clear-notes-modal-content">
+                <h2>Clear Investigation Notes?</h2>
+
+                <p>
+                    Are you sure you want to delete all your notes for this case?
+                </p>
+
+                <div class="clear-notes-actions">
+                    <button id="cancel-clear-notes-btn">
+                        Cancel
+                    </button>
+
+                    <button id="confirm-clear-notes-btn">
+                        Yes
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="accusation-modal" class="modal">
+            <div class="modal-content">
+                <h2>Confirm Your Accusation</h2>
+
+                <p id="accusation-modal-message"></p>
+
+                <div class="modal-actions">
+                    <button id="cancel-accusation-btn" class="modal-cancel-btn">
+                        Cancel
+                    </button>
+
+                    <button id="confirm-accusation-btn" class="modal-confirm-btn">
+                        Confirm 
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
